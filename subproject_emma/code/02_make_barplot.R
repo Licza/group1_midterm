@@ -7,6 +7,24 @@ library(ggplot2)
 
 data <- readr::read_csv(file = here::here("data/covid_sub.csv"))
 
+cargs <- commandArgs(TRUE)
+
+sex <- ifelse(
+  cargs[1] == "all", 
+  list(unique(data$SEX)),
+  cargs[1]
+)[[1]]
+
+medical_unit <- ifelse(
+  cargs[2] == "all",
+  list(unique(data$MEDICAL_UNIT)),
+  cargs[2]
+)[[1]]
+
+data <- data |>
+  filter(SEX %in% sex,
+         MEDICAL_UNIT %in% medical_unit) 
+
 data$INTUBED_num <- ifelse(data$INTUBED == "Yes", 1, 0)
 
 data$age_group <- cut(

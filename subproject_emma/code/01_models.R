@@ -10,7 +10,23 @@ library(readr)
 
 data <- readr::read_csv(here::here("data/covid_sub.csv"))
 
+cargs <- commandArgs(TRUE)
+
+sex <- ifelse(
+  cargs[1] == "all", 
+  list(unique(data$SEX)),
+  cargs[1]
+)[[1]]
+
+medical_unit <- ifelse(
+  cargs[2] == "all",
+  list(unique(data$MEDICAL_UNIT)),
+  cargs[2]
+)[[1]]
+
 data_model <- data |>
+  filter(SEX %in% sex,
+         MEDICAL_UNIT %in% medical_unit) |>
   filter(!is.na(INTUBED), !is.na(AGE)) |>
   mutate(
     INTUBED = factor(INTUBED, levels = c("No", "Yes"))
