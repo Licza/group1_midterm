@@ -15,6 +15,8 @@ sex <- ifelse(
   cargs[1]
 )[[1]]
 
+print(sex)
+
 medical_unit <- ifelse(
   cargs[2] == "all",
   list(unique(data$MEDICAL_UNIT)),
@@ -24,6 +26,8 @@ medical_unit <- ifelse(
 data <- data |>
   filter(SEX %in% sex,
          MEDICAL_UNIT %in% medical_unit) 
+
+print(nrow(data))
 
 data$INTUBED_num <- ifelse(data$INTUBED == "Yes", 1, 0)
 
