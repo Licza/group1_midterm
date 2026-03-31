@@ -26,16 +26,14 @@ data <- read.csv(
 # Regression Testing 
 
 ```{r}
-regression <- readRDS(regression, 
-        file = here::here("subproject_sophia/output/fit_model.rds"))
+regression <- readRDS(file = here::here("subproject_sophia/output/fit_model.rds"))
 ```
 
 
 # Table
 
 ```{r}
-table <- readRDS(table, 
-        file = here::here ("subproject_sophia/output/table.rds" ))
+table <- readRDS(file = here::here ("subproject_sophia/output/table.rds" ))
 
 table
 ```
