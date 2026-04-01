@@ -1,64 +1,5 @@
----
-title: "01_table1_summary_tables"
-author: "Bailey Hebermehl"
-date: "`r Sys.Date()`"
-output: html_document
----
+here::i_am("subproject_bailey/code/03_plots.R")
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-```{r bring-in-data}
-here::i_am("subproject_bailey/code/01_table1.Rmd")
-
-data <- read.csv(
-  file = here::here("data/covid_sub.csv")
-)
-```
-
-```{r cleaning-variables-of-interest}
-table(data$PATIENT_TYPE)
-
-#Remove missing
-data <- data[!is.na(data$AGE) | !is.na(data$PATIENT_TYPE) | !is.na(data$PNEUMONIA) | !is.na(data$INTUBED) | !is.na(data$CARDIOVASCULAR) | !is.na(data$OBESITY), ]
-
-#Label PATIENT_TYPE 
-data$PATIENT_TYPE <- ifelse(data$PATIENT_TYPE == 'hospitalization', "Hospitalization",
-                            ifelse(data$PATIENT_TYPE == 'returned home', 'Returned Home', data$PATIENT_TYPE))
-table(data$PATIENT_TYPE, useNA='always')
-
-table(data$INTUBED)
-table(data$CARDIOVASCULAR)
-table(data$OBESITY)
-table(data$AGE)
-
-```
-
-```{r table-one}
-library(gtsummary)
-library(dplyr)
-table1 <- data %>%
-  tbl_summary(
-    include = c(PNEUMONIA, INTUBED, CARDIOVASCULAR, OBESITY, PATIENT_TYPE, AGE),
-    missing = "no",
-    label = list(
-      AGE ~ "Age",
-      PATIENT_TYPE ~ "Type of Care",
-      PNEUMONIA ~ "Pneumonia",
-      INTUBED ~ "Ventilator", 
-      CARDIOVASCULAR ~ "Cardiovascular Disease", 
-      OBESITY ~ "Obesity"
-    ))
-table1
-
-saveRDS(
-  table1,
-  file = here::here("subproject_bailey/output/table1.rds")
-)
-```
-
-```{r, descriptive-statistics}
 install.packages("ggplot2")
 library(ggplot2)
 
@@ -173,6 +114,3 @@ saveRDS(
   age_histogram,
   file = here::here("subproject_bailey/output/age_histogram.rds")
 )
-```
-
-
