@@ -16,5 +16,10 @@ params:
 ```
 
 ```{r, child-reports}
-#| child = c("subproject1/report.Rmd", "subproject2/report.Rmd")
+#| child:
+#|   - "subproject_bailey/report.Rmd"
+#|   - "subproject_ava/report.Rmd"
+#|   - "subproject_emma/report.Rmd"
+#|   - "subproject_licza/report.Rmd"
+#|   - "subproject_sophia/report.Rmd"
 ```

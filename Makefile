@@ -7,7 +7,7 @@ SEX ?= all
 MEDICAL_UNIT ?= all
 
 .PHONY: report
-report:
+report: bailey ava emma licza sophia
 	Rscript render_combined_report.R $(SEX) $(MEDICAL_UNIT)
 	
 ### Bailey Output
@@ -89,6 +89,14 @@ subproject_ava/output/recode.rds: subproject_ava/code/recode.R
 	
 subproject_ava/output/table_one.rds: subproject_ava/code/table_one.R
 	Rscript subproject_ava/code/table_one.R $(SEX) $(MEDICAL_UNIT)
+	
+### clean
+
+.PHONY: clean
+clean:
+	rm *.html subproject_ava/output/* subproject_emma/output/* \
+	subproject_sophia/output/* subproject_licza/output/* subproject_bailey/output/*
+
 
 	
 

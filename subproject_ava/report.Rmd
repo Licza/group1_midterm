@@ -1,10 +1,13 @@
 ---
 title: Logistic Regression of Hospitalization on Number of Medical Conditions
-author: You
+author: Ava Crawford
 output: html_document
 ---
 
 ```{r, here-i-am, include = FALSE}
+library(dplyr)
+library(gt)
+library(gtsummary)
 here::i_am(
   "subproject_ava/report.Rmd"
 )
@@ -16,11 +19,16 @@ data <- readRDS(
 )
 ```
 
-```{r, load-table_one, include = FALSE}
+```{r, load-table_one, echo = FALSE}
 table_one <- readRDS(
  file = here::here("subproject_ava/output/table_one.rds"))
-table_one %>%
+table_one_modified <- table_one %>%
   as_gt() %>%
   gt::tab_header(
     title = md("**Table 1. Logistic regression of patient hospitalization by number of medical conditions (odds ratios with 95% CI).**")
   )
+
+table_one_modified
+```
+
+
