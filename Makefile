@@ -10,6 +10,8 @@ MEDICAL_UNIT ?= all
 report: bailey ava emma licza sophia
 	Rscript render_combined_report.R $(SEX) $(MEDICAL_UNIT)
 	
+# make install here
+	
 ### Bailey Output
 
 .PHONY: bailey
