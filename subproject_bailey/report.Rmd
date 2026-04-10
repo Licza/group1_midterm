@@ -1,0 +1,56 @@
+---
+title: "Table 1 & Descriptive Statistics"
+author: "Bailey Hebermehl"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup-bailey, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r bring-in-data, echo=FALSE}
+here::i_am("subproject_bailey/report.Rmd")
+```
+
+# Table One
+```{r table-one, echo=FALSE}
+table1 <- readRDS(
+  file = here::here("subproject_bailey/output/table1.rds")
+)
+table1
+```
+
+# Bar Charts and Histograms for Variables of Interest
+```{r, descriptive-statistics, echo=FALSE}
+age_histogram <- readRDS(
+  file = here::here("subproject_bailey/output/age_histogram.rds")
+)
+age_histogram
+
+patient_bar_chart <- readRDS(
+  file = here::here("subproject_bailey/output/patient_bar_chart.rds")
+)
+patient_bar_chart
+cardiovascular_bar_chart <- readRDS(
+  file = here::here("subproject_bailey/output/cardiovascular_bar_chart.rds")
+)
+cardiovascular_bar_chart
+
+intubed_bar_chart <- readRDS(
+  file = here::here("subproject_bailey/output/intubed_bar_chart.rds")
+)
+intubed_bar_chart
+
+obesity_bar_chart <- readRDS(
+  file = here::here("subproject_bailey/output/obesity_bar_chart.rds")
+)
+obesity_bar_chart
+
+pneumonia_bar_chart <- readRDS(
+  file = here::here("subproject_bailey/output/pneumonia_bar_chart.rds")
+)
+pneumonia_bar_chart
+```
+
+

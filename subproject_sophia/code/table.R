@@ -1,5 +1,9 @@
 here::i_am("subproject_sophia/code/table.R")
 
+library(gtsummary)
+
+regression <- readRDS(file = here::here("subproject_sophia/output/fit_model.rds"))
+
 table <- tbl_regression(regression, 
                exponentiate = TRUE) |>
   add_global_p() |>
