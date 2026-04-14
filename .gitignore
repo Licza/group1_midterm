@@ -2,3 +2,4 @@
 *.RHistory
 subproject_*/output/
 !subproject_*/output/.gitkeep
+.Rproj.user

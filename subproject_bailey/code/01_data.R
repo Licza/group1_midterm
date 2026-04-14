@@ -7,12 +7,14 @@ data <- read.csv(
 )
 
 cargs <- commandArgs(TRUE)
+print(cargs)
 
 sex <- ifelse(
   cargs[1] == "all",
   list(unique(data$SEX)),
   cargs[1]
 )[[1]]
+
 
 medical_unit <- ifelse(
   cargs[2] == "all",
@@ -31,6 +33,7 @@ data <- data[!is.na(data$AGE) |
                !is.na(data$OBESITY), ] %>%
   filter(SEX %in% sex,
          MEDICAL_UNIT %in% medical_unit)
+
 
 print("cleaned data")
 #Label PATIENT_TYPE 

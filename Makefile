@@ -1,14 +1,22 @@
-R_LIBS_USER := C:/Users/whhanso/AppData/Local/R/win-library/4.5
+#R_LIBS_USER := C:/Users/whhanso/AppData/Local/R/win-library/4.5
 
-export R_LIBS_USER
+#export R_LIBS_USER
+
+#export RENV_PATHS_LIBRARY = renv/library
 
 #Default params
 SEX ?= all
 MEDICAL_UNIT ?= all
 
+
+
 .PHONY: report
-report: bailey ava emma licza sophia
+report: install bailey ava emma licza sophia
 	Rscript render_combined_report.R $(SEX) $(MEDICAL_UNIT)
+	
+.PHONY: install
+install:
+	Rscript -e "renv::restore(prompt = FALSE)"	
 	
 # make install here
 	
