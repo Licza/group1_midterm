@@ -6,7 +6,7 @@ data <- read.csv(
   file = here::here("data/covid_sub.csv")
 )
 
-cargs <- commandArgs(TRUE)
+cargs <- c("all", "all")
 
 sex <- ifelse(
   cargs[1] == "all",
