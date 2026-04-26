@@ -14,6 +14,7 @@ here::i_am("subproject_bailey/report.Rmd")
 ```
 
 # Table One
+Table #1 provides descriptive statistics for the variables of interest in our analysis. 
 ```{r table-one, echo=FALSE}
 table1 <- readRDS(
   file = here::here("subproject_bailey/output/table1.rds")
@@ -22,35 +23,13 @@ table1
 ```
 
 # Bar Charts and Histograms for Variables of Interest
-```{r, descriptive-statistics, echo=FALSE}
-age_histogram <- readRDS(
-  file = here::here("subproject_bailey/output/age_histogram.rds")
-)
-age_histogram
+The figures below illustrate the distributions of the variables of interest in our study population. As shown in Figure A, 178,670 patients did not have a pneumonia diagnosis, whereas 27,845 patients were diagnosed with pneumonia. Figure B shows that 31,614 patients were not intubated and 6,775 patients underwent intubation. Figure C indicates that 204,973 patients did not have cardiovascular disease, while 4,139 patients did. Figure D shows that 176,997 patients did not have obesity, compared with 32,141 patients who did. Figure E shows that 39,803 patients were hospitalized, whereas 169,912 were discharged home. Figure F presents the age distribution of all patients in the study, with a mean age of 41.7 years.
+```{r, descriptive-statistics, echo=FALSE, message=FALSE, warning=FALSE}
 
-patient_bar_chart <- readRDS(
-  file = here::here("subproject_bailey/output/patient_bar_chart.rds")
+combined_plots <- readRDS(
+  file = here::here("subproject_bailey/output/combined_plots.rds")
 )
-patient_bar_chart
-cardiovascular_bar_chart <- readRDS(
-  file = here::here("subproject_bailey/output/cardiovascular_bar_chart.rds")
-)
-cardiovascular_bar_chart
-
-intubed_bar_chart <- readRDS(
-  file = here::here("subproject_bailey/output/intubed_bar_chart.rds")
-)
-intubed_bar_chart
-
-obesity_bar_chart <- readRDS(
-  file = here::here("subproject_bailey/output/obesity_bar_chart.rds")
-)
-obesity_bar_chart
-
-pneumonia_bar_chart <- readRDS(
-  file = here::here("subproject_bailey/output/pneumonia_bar_chart.rds")
-)
-pneumonia_bar_chart
+combined_plots
 ```
 
 

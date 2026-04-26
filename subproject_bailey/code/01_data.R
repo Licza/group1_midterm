@@ -7,7 +7,6 @@ data <- read.csv(
 )
 
 cargs <- commandArgs(TRUE)
-print(cargs)
 
 sex <- ifelse(
   cargs[1] == "all",
