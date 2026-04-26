@@ -9,12 +9,6 @@ params:
   medical_unit: all # default
 ---
 
-```{r setup-params}
-# if(params$sex == "all"){
-#   sex = 
-# }
-```
-
 ```{r, child-reports}
 #| child:
 #|   - "subproject_bailey/report.Rmd"

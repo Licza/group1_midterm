@@ -43,7 +43,8 @@ BAILEY_FIGURES = subproject_bailey/output/pneumonia_bar_chart.rds \
 									subproject_bailey/output/cardiovascular_bar_chart.rds \
 									subproject_bailey/output/obesity_bar_chart.rds \
 									subproject_bailey/output/patient_bar_chart.rds \
-									subproject_bailey/output/age_histogram.rds
+									subproject_bailey/output/age_histogram.rds \
+									subproject_bailey/output/multiplot.png
 									
 $(BAILEY_FIGURES): subproject_bailey/output/data.rds subproject_bailey/code/03_plots.R
 	Rscript subproject_bailey/code/03_plots.R
