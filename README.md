@@ -7,7 +7,7 @@ by medical unit type, provide the command "make SEX=<"male" "female" or "all">
 and/or MEDICAL_UNIT=<integer 1-12>. NOTE: Some values of medical unit may result
 in high multicollinearity in some of the regression models in which case the report
 will fail to render. If this happens, try another combination (medical unit 12
-should work)or leave the arguments blank.
+should work) or leave the arguments blank.
 
 ### Authors
 Sophia Choudhri, Ava Crawford, Emma Dunne, Liam Hanson, Bailey Hebermehl, Licza Lobo
