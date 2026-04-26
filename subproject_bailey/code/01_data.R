@@ -6,8 +6,8 @@ data <- read.csv(
   file = here::here("data/covid_sub.csv")
 )
 
-cargs <- c("all", "all")
-
+cargs <- commandArgs(TRUE)
+  
 sex <- ifelse(
   cargs[1] == "all",
   list(unique(data$SEX)),
