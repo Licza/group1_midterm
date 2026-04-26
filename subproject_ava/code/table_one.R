@@ -5,6 +5,10 @@ data <- readRDS(
 )
 
 library(gtsummary)
+library(broom)
+library(broom.helpers)
+library(car)
+library(parameters)
 
 binary_mod <- glm(patient_type_recode ~ num_med_conditions_cat, 
                   data = data, 
