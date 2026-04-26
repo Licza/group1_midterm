@@ -11,9 +11,12 @@ library(gtsummary)
 library(config)
 ```
 
-
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
 
 ```{r}
+#| echo: FALSE
 here::i_am("subproject_sophia/report.Rmd")
 
 data <- read.csv(
@@ -27,10 +30,12 @@ data <- read.csv(
 The logistic regression model below was used to assess the association between hospitalization and cardiovascular disease and obesity. The results are presented as odds ratios with corresponding 95% confidence intervals and p-values to evaluate the strength and significance of each association.
 
 ```{r}
+#| echo: FALSE
 regression <- readRDS(file = here::here("subproject_sophia/output/fit_model.rds"))
 ```
 
 ```{r}
+#| echo: FALSE
 table <- readRDS(file = here::here ("subproject_sophia/output/table.rds" ))
 
 table
