@@ -26,6 +26,12 @@ data <- data %>%
 
 data$num_med_conditions <- rowSums(data[, c("PNEUMONIA","DIABETES","COPD","ASTHMA","INMSUPR","HIPERTENSION","CARDIOVASCULAR","RENAL_CHRONIC","OTHER_DISEASE","OBESITY")]=="Yes")
 data$patient_type_recode <-ifelse(data$PATIENT_TYPE == "hospitalization", 1, 0)
+data$num_med_conditions_cat <- cut(
+  data$num_med_conditions,
+  breaks = c(-1,0,1,2,3,4,Inf),
+  labels = c("0","1","2","3","4","5+")
+)
+
 saveRDS(
   data, 
   file = here::here("subproject_ava/output/recode.rds")

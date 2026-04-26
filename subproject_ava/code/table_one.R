@@ -6,13 +6,16 @@ data <- readRDS(
 
 library(gtsummary)
 
-binary_mod <- glm(patient_type_recode ~ num_med_conditions, 
+binary_mod <- glm(patient_type_recode ~ num_med_conditions_cat, 
                   data = data, 
                   family = binomial)
 
 table_one <- tbl_regression(
   binary_mod,
-  exponentiate = TRUE 
+  exponentiate = TRUE,
+  label = list(
+    num_med_conditions_cat ~ "Number of Medical Conditions"
+  )
 ) |>
   add_global_p()
 

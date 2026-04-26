@@ -22,13 +22,13 @@ data <- readRDS(
 ```{r, load-table_one, echo = FALSE}
 table_one <- readRDS(
  file = here::here("subproject_ava/output/table_one.rds"))
-table_one_modified <- table_one %>%
-  as_gt() %>%
+table_one_modified <- table_one |>
+  as_gt() |>
   gt::tab_header(
-    title = md("**Table 1. Logistic regression of patient hospitalization by number of medical conditions (odds ratios with 95% CI).**")
+    title = gt::md("**Table 1. Logistic regression of patient hospitalization by number of medical conditions (odds ratios with 95% CI).**")
   )
 
 table_one_modified
 ```
 
-
+This table shows the association between number of medical conditions and hospitalization status. Odds ratios, 95% confidence intervals, and the global p-value from the logistic regression model are shown.
