@@ -18,7 +18,7 @@ pneumonia_bar_chart <-
   geom_bar() +
   scale_fill_manual(values = c("Yes" = "steelblue", "No" = "plum")) +
   labs(
-    title = "Distribution of Pneumonia Diagnosis",
+    title = "Distribution of Pneumonia Diagn.",
     x = "Diagnosis of Pneumonia",
     y = "Count"
   ) 
@@ -56,7 +56,7 @@ cardiovascular_bar_chart <-
   geom_bar() +
   scale_fill_manual(values = c("Yes" = "steelblue", "No" = "plum")) +
   labs(
-    title = "Distribution of Cardiovascular Disease",
+    title = "Distribution of CVD",
     x = "Cardiovascular Disease",
     y = "Count"
   )
@@ -89,9 +89,12 @@ saveRDS(
 patient_bar_chart <-
   data |> 
   filter(!is.na(PATIENT_TYPE)) |>
+  mutate(PATIENT_TYPE = factor(PATIENT_TYPE, 
+                               levels = c("Returned Home", "Hospitalization"),
+                               labels = c("Ret. Home", "Hospitalized"))) %>%
   ggplot(aes(x = PATIENT_TYPE, fill = PATIENT_TYPE)) +
   geom_bar() +
-  scale_fill_manual(values = c("Hospitalization" = "steelblue", "Returned Home" = "plum")) +
+  scale_fill_manual(values = c("Hospitalized" = "steelblue", "Ret. Home" = "plum")) +
   labs(
     title = "Distribution of Patient Type",
     x = "Patient Type",
@@ -124,7 +127,9 @@ saveRDS(
 #Combine graphs using cowplot
 library(cowplot)
 combined_plots <- plot_grid(pneumonia_bar_chart, intubed_bar_chart, cardiovascular_bar_chart,
-          obesity_bar_chart, patient_bar_chart, age_histogram, ncol=3,
+          obesity_bar_chart, patient_bar_chart, age_histogram, ncol=2,
           labels = c("A", "B", "C", "D", "E", "F"))
+cowplot::ggsave2("subproject_bailey/output/multiplot.png",
+       combined_plots, width = 8, height = 5)
 saveRDS(combined_plots,
         file = here::here("subproject_bailey/output/combined_plots.rds"))
