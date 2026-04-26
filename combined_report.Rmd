@@ -1,6 +1,6 @@
 ---
 title: "DATA550 Midterm: Analysis of Covid Cases" ### Add code for parameter-dependent title here
-authors: Sophia Choudhri, Ava Crawford, Emma Dunne, Liam Hanson, Bailey Hebermehl, Licza Lobo
+author: Sophia Choudhri, Ava Crawford, Emma Dunne, Liam Hanson, Bailey Hebermehl, Licza Lobo
 date: "`r Sys.Date()`"
 output: html_document
 # Add code display options
@@ -8,6 +8,21 @@ params:
   sex: all # default
   medical_unit: all # default
 ---
+
+## Summary
+
+
+In this report, we analyze COVID-19 case data and associated risk factors in Mexico.
+```{r, parameterized-text, results = 'asis'}
+#| echo: FALSE
+if(params$sex != "all"  & params$medical_unit != "all"){
+  cat("Only data from", paste0(params$sex, "s"), "and medical unit", params$medical_unit, "was analyzed.")
+} else if (params$sex != "all") {
+  cat("Only data from", paste0(params$sex, "s"),  "was analyzed.")
+} else if (params$medical_unit != "all") {
+  cat("Only data from", params$medical_unit,  "was analyzed.")
+}
+```
 
 ```{r, child-reports}
 #| child:

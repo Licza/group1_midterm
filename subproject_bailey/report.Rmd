@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r bring-in-data, echo=FALSE}
+```{r bring-in-data, include=FALSE}
 here::i_am("subproject_bailey/report.Rmd")
 ```
 

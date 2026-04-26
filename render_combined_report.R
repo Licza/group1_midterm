@@ -6,7 +6,7 @@ here::i_am(
 
 cargs <- commandArgs(TRUE)
 sex <- cargs[1]
-medical_unit <- cargs[1]
+medical_unit <- cargs[2]
 
 render(
   "combined_report.Rmd",
