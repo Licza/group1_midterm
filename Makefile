@@ -9,6 +9,13 @@ SEX ?= all
 MEDICAL_UNIT ?= all
 
 
+.PHONY:run_image
+run_image:  
+	docker run --platform linux/amd64 -v \
+	"/$(PWD)/final_report":/home/rstudio/group1_midterm/final_report \
+	-v "/$(PWD)/data":/home/rstudio/group1_midterm/data \
+	-e SEX=$(SEX) -e MEDICAL_UNIT=$(MEDICAL_UNIT)\
+	lhanson010/group_1_midterm
 
 .PHONY: report
 report: install bailey ava emma licza sophia
