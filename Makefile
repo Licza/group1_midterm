@@ -9,12 +9,12 @@ SEX ?= all
 MEDICAL_UNIT ?= all
 
 
-.PHONY:run_image
-run_image:  
+.PHONY:report_from_image
+report_from_image:  
 	docker run --platform linux/amd64 -v \
 	"/$(PWD)/final_report":/home/rstudio/group1_midterm/final_report \
 	-v "/$(PWD)/data":/home/rstudio/group1_midterm/data \
-	-e SEX=$(SEX) -e MEDICAL_UNIT=$(MEDICAL_UNIT)\
+	-e SEX=$(SEX) -e MEDICAL_UNIT=$(MEDICAL_UNIT) \
 	lhanson010/group_1_midterm
 
 .PHONY: report
@@ -112,8 +112,9 @@ subproject_ava/output/table_one.rds: subproject_ava/code/table_one.R
 
 .PHONY: clean
 clean:
-	rm *.html subproject_ava/output/* subproject_emma/output/* \
-	subproject_sophia/output/* subproject_licza/output/* subproject_bailey/output/*
+	rm final_report/*.html subproject_ava/output/* subproject_emma/output/* \
+	subproject_sophia/output/* subproject_licza/output/* subproject_bailey/output/* \
+	rm Rplots.pdf
 
 
 	
