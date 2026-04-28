@@ -1,7 +1,7 @@
 This is the project repository for Group 1's midterm project for DATA 550 Spring 2026 analyzing the COVID dataset
 
 ### Instructions
-To render the entire report,  clone the repository in your desired directory and enter "make report_from_image" into the terminal. 
+To render the entire report,  clone the repository in your desired directory and enter "make report_from_image" into the terminal. The report will be located in "final_report" as "combined_report.html".
 
 The "data" directory in the project repository will be mounted to the docker directory which includes
 the covid_sub.csv file by default. To create the report with a different data set, replace this data set
